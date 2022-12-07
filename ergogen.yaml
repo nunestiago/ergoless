@@ -1,0 +1,89 @@
+points:
+  zones:
+    matrix:
+      columns:
+        esc:
+        one:
+          stagger: 2
+        two:
+          stagger: 5
+        three:
+          stagger: 5
+        four:
+          stagger: -5
+        five:
+          stagger: -3
+          rows:
+            ctrl.skip: true
+      rows:
+        ctrl:
+        zulu:
+        alpha:
+        quebec:
+        number:
+      key:
+        padding: cy
+        tags: 1u
+        footprints:
+          choc:
+            type: choc
+            anchor:
+              rotate: 180
+            nets:
+              from: =column_net
+              to: GND
+            params:
+                keycaps: true
+                reverse: true
+    thumbs:
+      anchor:
+        ref: matrix_five_ctrl
+        shift: [10, -5]
+        rotate: -15
+      columns:
+        one:
+        two:
+          rotate: -5
+          origin: [-25, -25]
+      rows:
+        two:
+      key:
+        footprints:
+          choc:
+            type: choc
+            anchor:
+              rotate: 180
+            nets:
+              from: =column_net
+              to: GND
+            params:
+                keycaps: true
+                reverse: true
+outlines:
+  exports:
+    raw:
+      - type: keys
+        side: left
+        size: [cx + 2, cy + 2]
+      - type: rectangle
+        size: [60, 25]
+        anchor:
+          ref: matrix_five_zulu
+          rotate: -20
+          shift: [-17, -26]
+    cutout:
+      - type: outline
+        name: raw
+        fillet: 2
+    keycap_outlines:
+      - type: keys
+        side: left
+        size: [1cx - 0.5, 1cy - 0.5]
+pcbs:
+  large:
+    outlines:
+      board:
+        outline: cutout
+      keycaps:
+        outline: keycap_outlines
+        layer: Eco1.User
